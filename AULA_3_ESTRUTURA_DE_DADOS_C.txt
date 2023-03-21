@@ -1,0 +1,213 @@
+//Estrutura de dados Heterogêneos PARTE 1 AULA 3
+
+struct Funcionario {
+    
+  int matricula; //4 bites por memória
+    
+  char nome[5];  // 1 bite por caractere [totalizando 5]
+    
+  int idade;     // 4 bites por memória
+    
+  float salario; // 4 bites por memória
+
+ };
+
+int main (){
+  struct Funcionario funcio;
+  funcio.matricula = 001;
+  funcio.nome = "maria";
+  funcio.idade = 25;
+  funcio.salario = 122.00;
+  return 0;
+}
+
+---------------------------------------------------------------------------
+Comando com Typedef em Estrutura de dados Heterogêneos
+[Renomeação de tipos facilita a organização e o entendimento do código]
+
+typedef struct {
+    
+  int matricula;     
+  char nome[5];  
+    
+  int idade;     
+    
+  float salario; 
+} Funcionario;
+
+int main (){
+  Funcionario funcio;
+  funcio.matricula = 001;
+  funcio.nome = "maria";
+  funcio.idade = 25;
+  funcio.salario = 122.00;
+  return 0;
+}
+
+---------------------------------------------------------------------------
+EXEMPLO 1 - STRUCT
+
+#include <stdio.h>
+
+typedef struct {
+  int pecas;
+  float preco;
+} Venda;
+
+int main(){
+  Venda A = {10, 55.0};
+  Venda B = {15, 124.00};
+  Venda total;
+  total.pecas = A.pecas + B.pecas;
+  total.preco = A.preco + B.preco;
+  printf("\n Total de pecas.....: %d\n", total.pecas);
+  printf("\n Total preços.......: %2.2f\n", total.preco)
+}
+
+---------------------------------------------------------------------------
+EXEMPLO 2 STRUCT (Aninhamento de Struct's)
+
+typedef struct {
+  int dia;
+  char mes[10];
+  int ano;
+}
+typedef struct{
+  int pecas;
+  float preco;
+  Data diaVenda;
+} Venda;
+
+int main (){
+  Venda v = {20, 110.0, {7, "Janeiro", 2020}};
+  printf("\n Ano da venda....:%d\n", v.diaVenda.ano);
+}
+
+---------------------------------------------------------------------------
+EXEMPLO 3 STRUCT (STRUCT'S POR PARÂMETROS)
+
+typedef struct {
+  int pecas;
+  float preco;
+} Venda;
+void imprimeTotal (Venda v1, Venda v2){
+  Venda total = {0, 0.0};
+  total.pecas = v1.pecas + v2.pecas;
+  total.preco = v1.preco + v2.preco;
+  printf("Qtde peças....: %d\n", total.pecas);
+  printf("Preço total...: %.2f\n", total.preco;
+}
+
+---------------------------------------------------------------------------
+EXEMPLO 4 STRUCT (STRUCT'S POR PONTEIROS)
+
+typedef struct {
+  int dia;
+  int mes;
+  int ano;
+} Data;
+
+int main(){
+  Data data;
+  Data *p = &data;
+  printf("Informe a data: \n");
+  scanf("%d %d %d", &data.dia, &data.mes, &data.ano);
+  printf("Data informada..: %d %d %d", (*p).dia, (*p).mes, (*p).ano);
+  return 0;
+}
+
+---------------------------------------------------------------------------
+EXEMPLO 5 STRUCT (STRUCT'S POR PONTEIROS)
+
+typedef struct{
+  int matricula;
+  char *nome;
+  float nota;
+} Aluno;
+
+int main(){
+  Aluno aluno;
+  Aluno *ptr = &aluno;
+  ptr->matricula = 12324;
+  ptr->nome = "Joao";
+  ptr->nota = 9.5;
+  printf("..Dados do aluno.. \n");
+  printf("Matricula..: %d\n", ptr->matricula);
+  printf("Nome.......: %s\n", ptr->nome);
+  printf("Nota.......: %f\n", ptr->nota);
+  return 0;
+}
+
+---------------------------------------------------------------------------
+EXEMPLO 6 STRUCT (STRUCT'S POR ALOCAÇÃO DINAMICA)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+  int dia;
+  int mes;
+  int ano;
+} Data;
+
+int main(){
+  Data *data;
+  
+  data = malloc(sizeof(Data));
+  data->dia = 02;
+  data->mes = 10;
+  data->ano = 2020;
+
+  printf("\nExecutando Corretamente!");
+  return 0;
+}
+
+---------------------------------------------------------------------------
+EXEMPLO 7 STRUCT (STRUCT'S POR ELEMENTOS MATEMATICOS)
+
+typedef struct{
+  float x;
+  float y;
+} Ponto;
+
+int main(){
+  Ponto p1;
+  Ponto p2;
+
+  p1.x = 4.0;
+  p2.y = 3.0;
+
+  p2.x = 2.0;
+  p2.y = 1.0;
+  
+  return 0;
+}
+
+---------------------------------------------------------------------------
+EXEMPLO 8 STRUCT (STRUCT'S COM VETORES)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Funcionario{
+  char nome[20];
+  int matricula;
+  float salario;
+};
+
+typedef struct Funcionario func;
+
+int main() {
+  int i;
+  func registro[5];
+  for ( i = 0 ; i < 5 ; i++){
+  printf("Digite o nome do funcinário %d:\n", i+1);
+  scanf(" %[^\n]s",registro[i].nome);
+  printf("Digite a Matricula de %s:\n",registro[i].nome);
+  scanf(" %d",registro[i].matricula);
+  printf("Digite o Salário de %s:\n",registro[i].nome);
+  scanf(" %f",registro[i].salario);
+ }
+return 0;
+}
+
