@@ -5,7 +5,7 @@
 
 int main()
 {
-    int n = 2;
+    int n = 0;
     Aluno alunos[2];
     
     alunos[0].nome = "Maria";
