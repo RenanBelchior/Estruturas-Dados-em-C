@@ -1,0 +1,29 @@
+LISTAS PILHAS E FILAS
+estrutura de dados em C
+
+Lista encadeada é um tipo de estrutura de dados
+não primitivas que contém um grupo de nós
+interligados através de ponteiros, onde o ponteiro
+dentro da estrutura aponta para o próximo nó até
+que o ponteiro seja NULL indicando assim o fim da
+lista.
+
+Listas Encadeadas - Principais operações:
+• INSERT (inserção)
+• DELETE (remoção)
+• SEARCH (busca)
+
+Pilhas - Principais operações:
+• PUSH - inserção ou INSERT
+• POP - remoção ou DELETE
+
+
+Estrutura de Dados: Pilhas
+São estruturas de dados do tipo LIFO (last-in firstout), onde o último elemento a ser inserido, será
+o primeiro a ser retirado.
+Assim, uma pilha permite acesso a apenas um item de
+dados - o último inserido.
+
+Principais operações da Fila:
+• ENQUEUE (enfileira)
+•DEQUEUE (desenfileira) 
